@@ -94,25 +94,15 @@ module.exports = helpers.validate({
       },
 
       // Support for *.json files.
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
+      {test: /\.json$/, loader: 'json-loader'},
 
       // Support for CSS as raw text
-      {
-        test: /\.css$/,
-        loader: 'raw-loader'
-      },
+      {test: /\.css$/, loader: 'raw-loader'},
+
+      {test: /\.scss$/, loader: 'raw-loader!sass-loader', exclude: /node_modules/},
 
       // support for .html as raw text
-      {
-        test: /\.html$/,
-        loader: 'raw-loader',
-        exclude: [
-          helpers.root('src/index.html')
-        ]
-      }
+      {test: /\.html$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')]}
 
     ]
   },

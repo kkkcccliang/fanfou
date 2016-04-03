@@ -27,7 +27,7 @@ module.exports = helpers.validate({
   // cache: false,
 
   // our angular app
-  entry: { 'polyfills': './src/polyfills.ts', 'main': './src/main.ts' },
+  entry: {'polyfills': './src/polyfills.ts', 'main': './src/main.ts'},
 
   // Config for our build files
   output: {
@@ -45,31 +45,33 @@ module.exports = helpers.validate({
     preLoaders: [
       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
       // TODO(gdi2290): `exclude: [ helpers.root('node_modules/rxjs') ]` fixed with rxjs 5 beta.3 release
-      { test: /\.js$/, loader: "source-map-loader", exclude: [ helpers.root('node_modules/rxjs') ] }
+      {test: /\.js$/, loader: "source-map-loader", exclude: [helpers.root('node_modules/rxjs')]}
     ],
     loaders: [
       // Support for .ts files.
-      { test: /\.ts$/, loader: 'ts-loader', exclude: [ /\.(spec|e2e)\.ts$/ ] },
+      {test: /\.ts$/, loader: 'ts-loader', exclude: [/\.(spec|e2e)\.ts$/]},
 
       // Support for *.json files.
-      { test: /\.json$/,  loader: 'json-loader' },
+      {test: /\.json$/, loader: 'json-loader'},
 
       // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
+      {test: /\.css$/, loader: 'raw-loader'},
+
+      {test: /\.scss$/, loader: 'raw-loader!sass-loader', exclude: /node_modules/},
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader', exclude: [ helpers.root('src/index.html') ] }
+      {test: /\.html$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')]}
 
     ]
   },
 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity }),
+    new webpack.optimize.CommonsChunkPlugin({name: 'polyfills', filename: 'polyfills.bundle.js', minChunks: Infinity}),
     // static assets
-    new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
+    new CopyWebpackPlugin([{from: 'src/assets', to: 'assets'}]),
     // generating html
-    new HtmlWebpackPlugin({ template: 'src/index.html' }),
+    new HtmlWebpackPlugin({template: 'src/index.html'}),
     // replace
     new webpack.DefinePlugin({
       'process.env': {
@@ -92,7 +94,7 @@ module.exports = helpers.validate({
     host: metadata.host,
     // contentBase: 'src/',
     historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 }
+    watchOptions: {aggregateTimeout: 300, poll: 1000}
   },
   // we need this due to problems with es6-shim
   node: {global: 'window', progress: false, crypto: 'empty', module: false, clearImmediate: false, setImmediate: false}
