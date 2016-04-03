@@ -4,6 +4,7 @@
  * 用户下的某个订单
  */
 
+'use strict';
 
 var mongoose = require("mongoose");
 

@@ -4,6 +4,7 @@
  * 餐馆
  */
 
+'use strict';
 
 var mongoose = require('mongoose');
 

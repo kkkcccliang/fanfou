@@ -4,6 +4,7 @@
  * 菜单. 需要属于某个餐馆
  */
 
+'use strict';
 
 var mongoose = require('mongoose');
 

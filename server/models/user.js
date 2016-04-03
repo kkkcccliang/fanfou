@@ -4,6 +4,7 @@
  * 订餐系统中的用户定义
  */
 
+'use strict';
 
 var mongoose = require("mongoose");
 

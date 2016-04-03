@@ -4,6 +4,7 @@
  * 订单会话. 嗯, 名字可能起得不好, 意思是指一次新的订餐
  */
 
+'use strict';
 
 var mongoose = require('mongoose');
 
