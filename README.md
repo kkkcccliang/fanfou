@@ -12,4 +12,4 @@
 - cd fanfou/server && npm install && node index.js
 - 新建终端窗口, cd fanfou/client && npm install && npm start
 
-**clien尚未完成对接**
+**client尚未完成对接**
