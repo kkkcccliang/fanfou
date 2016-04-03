@@ -1,0 +1,14 @@
+{
+  "name": "fanfou",
+  "version": "1.0.0",
+  "description": "小伙伴们订餐用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liangjingzhan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

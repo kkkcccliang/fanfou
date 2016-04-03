@@ -24,17 +24,6 @@ build/Release
 # Users Environment Variables
 .lock-wscript
 
-# OS generated files #
-.DS_Store
-ehthumbs.db
-Icon?
-Thumbs.db
-
-# Node Files #
-/node_modules
-/bower_components
-npm-debug.log
-
 # Coverage #
 /coverage/
 
@@ -57,5 +46,4 @@ npm-debug.log
 /doc/
 
 # IDE #
-.idea/
 *.swp
