@@ -6,10 +6,11 @@
 - server 后台. Using node, express, mongodb
 
 ## Quick Start
-- node >= 4.4.0
-- 安装mongodb
+- 安装node(版本 >= 4.4.0)
+- 安装[mongodb](https://www.mongodb.org/downloads#production)
+- 终端运行`mongod`, 新建终端运行`mongo`, 新建数据库`use fanfou`
 - git clone https://github.com/liangjingzhan/fanfou.git
 - cd fanfou/server && npm install && node index.js
 - 新建终端窗口, cd fanfou/client && npm install && npm start
 
-**client尚未完成对接**
+**client尚未完成**
