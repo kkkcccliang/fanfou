@@ -17,41 +17,20 @@ let Router = require('express').Router;
 module.exports = function generateStandardRouter(Model, path, options) {
     options = options || {};
     let router = new Router();
-    let allHandler = typeof options.all === 'function' ? options.all : (req, res, next) => {
-        next();
-    };
+    let allHandler = typeof options.all === 'function' ? options.all : (req, res, next) => next();
 
     router.route(path)
-        .all((req, res, next) => {
-            // Handling all request of this path
-            allHandler(req, res, next);
-        })
-        .get((req, res, next) => {
-            getAllModels(Model, req, res, next);
-        })
-        .post((req, res, next) => {
-            createNewModel(Model, req, res, next);
-        })
-        .all((req, res, next) => {
-            next(methodNotAllow());
-        });
+        .all((req, res, next) => allHandler(req, res, next))
+        .get((req, res, next) => getAllModels(Model, req, res, next))
+        .post((req, res, next) => createNewModel(Model, req, res, next))
+        .all((req, res, next) => next(methodNotAllow()));
 
     router.route(path + '/:id')
-        .all((req, res, next) => {
-            allHandler(req, res, next);
-        })
-        .get((req, res, next) => {
-            getModelById(Model, req, res, next);
-        })
-        .post((req, res, next) => {
-            updateModelById(Model, req, res, next);
-        })
-        .delete((req, res, next) => {
-            deleteModelById(Model, req, res, next);
-        })
-        .all((req, res, next) => {
-            next(methodNotAllow());
-        });
+        .all((req, res, next) => allHandler(req, res, next))
+        .get((req, res, next) => getModelById(Model, req, res, next))
+        .post((req, res, next) => updateModelById(Model, req, res, next))
+        .delete((req, res, next) => deleteModelById(Model, req, res, next))
+        .all((req, res, next) => next(methodNotAllow()));
 
     return router;
 };
@@ -64,11 +43,7 @@ function methodNotAllow() {
 
 function getAllModels(Model, req, res, next) {
     Model.find((err, models) => {
-        if (err) {
-            next(err);
-        } else {
-            res.json(models);
-        }
+        err ? next(err) : res.json(models);
     })
 }
 
@@ -82,21 +57,13 @@ function createNewModel(Model, req, res, next) {
     });
 
     model.save((err) => {
-        if (err) {
-            next(err);
-        } else {
-            res.json(model);
-        }
+        err ? next(err) : res.json(model);
     });
 }
 
 function getModelById(Model, req, res, next) {
     Model.findById(req.params.id, (err, model) => {
-        if (err) {
-            next(err);
-        } else {
-            res.json(model);
-        }
+        err ? next(err) : res.json(model);
     })
 }
 
@@ -115,11 +82,7 @@ function updateModelById(Model, req, res, next) {
         });
 
         model.save((err) => {
-            if (err) {
-                next(err);
-            } else {
-                res.json(model);
-            }
+            err ? next(err) : res.json(model);
         });
     })
 }
@@ -128,10 +91,6 @@ function deleteModelById(Model, req, res, next) {
     Model.remove({
         _id: req.params.id
     }, (err, model) => {
-        if (err) {
-            next(err);
-        } else {
-            res.sendStatus(200);
-        }
+        err ? next(err) : res.sendStatus(200);
     });
 }

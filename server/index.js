@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
     }
 });
 
-// todo split app and http server
+// todo separate app and http server
 app.listen(8080, () => {
-    console.log('Example app listening on port 8080!');
+    console.log('Fanfou listening on port 8080!');
 });

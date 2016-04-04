@@ -7,5 +7,7 @@
 module.exports = [
     require('./menu'),
     require('./order'),
+    require('./orderSession'),
+    require('./restaurant'),
     require('./user')
 ];
