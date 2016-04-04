@@ -13,29 +13,24 @@ import {Home} from './home/home';
  * Top Level Component
  */
 @Component({
-  selector: 'app',
-  providers: [ ...FORM_PROVIDERS ],
-  directives: [ ...ROUTER_DIRECTIVES, RouterActive ],
-  pipes: [],
-  styles: [ require('./app.scss') ],
-  template: require('./app.html')
+    selector: 'app',
+    providers: [...FORM_PROVIDERS],
+    directives: [...ROUTER_DIRECTIVES, RouterActive],
+    pipes: [],
+    styles: [require('./app.scss')],
+    template: require('./app.html')
 })
 @RouteConfig([
-  { path: '/', component: Home, name: 'Index' },
-  { path: '/home', component: Home, name: 'Home' },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', loader: () => require('es6-promise!./about/about')('About'), name: 'About' },
-  { path: '/**', redirectTo: ['Index'] }
+    {path: '/', component: Home, name: 'Index'},
+    {path: '/home', component: Home, name: 'Home'},
+    {path: '/setting', component: Home, name: 'Setting'},
+    // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
+    {path: '/about', loader: () => require('es6-promise!./about/about')('About'), name: 'About'},
+    {path: '/**', redirectTo: ['Index']}
 ])
 export class App {
-  angularClassLogo: string;
-  name: string;
-  url: string;
-  constructor() {
-    this.angularClassLogo = 'assets/img/angularclass-avatar.png';
-    this.name = 'Angular 2 Webpack Starter';
-    this.url = 'https://twitter.com/AngularClass';
-  }
+    constructor() {
+    }
 }
 
 /*
