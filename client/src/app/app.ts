@@ -5,7 +5,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
-import {RouterActive} from './directives/router-active';
+import {RouterActive} from './components/directives/router-active';
 import {Home} from './home/home';
 
 /*
