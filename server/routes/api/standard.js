@@ -28,7 +28,7 @@ module.exports = function generateStandardRouter(Model, path, options) {
     router.route(path + '/:id')
         .all((req, res, next) => allHandler(req, res, next))
         .get((req, res, next) => getModelById(Model, req, res, next))
-        .post((req, res, next) => updateModelById(Model, req, res, next))
+        .put((req, res, next) => updateModelById(Model, req, res, next))
         .delete((req, res, next) => deleteModelById(Model, req, res, next))
         .all((req, res, next) => next(methodNotAllow()));
 
@@ -68,23 +68,11 @@ function getModelById(Model, req, res, next) {
 }
 
 function updateModelById(Model, req, res, next) {
-    Model.findById(req.params.id, (err, model) => {
-        if (err) {
-            next(err);
-            return;
-        }
-
-        let body = req.body;
-        let keys = Object.keys(body);
-
-        keys.forEach((key) => {
-            model[key] = body[key];
-        });
-
-        model.save((err) => {
-            err ? next(err) : res.json(model);
-        });
-    })
+    Model.findOneAndUpdate({
+        _id: req.params.id
+    }, req.body, (err, model) => {
+        err ? next(err) : res.json(model);
+    });
 }
 
 function deleteModelById(Model, req, res, next) {
