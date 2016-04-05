@@ -7,6 +7,7 @@ import {FORM_PROVIDERS} from 'angular2/common';
 
 import {RouterActive} from './components/directives/router-active';
 import {Home} from './home/home';
+import {Setting} from './setting/setting';
 
 /*
  * App Component
@@ -21,12 +22,11 @@ import {Home} from './home/home';
     template: require('./app.html')
 })
 @RouteConfig([
-    {path: '/', component: Home, name: 'Index'},
     {path: '/home', component: Home, name: 'Home'},
-    {path: '/setting', component: Home, name: 'Setting'},
+    {path: '/setting', component: Setting, name: 'Setting'},
     // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
     {path: '/about', loader: () => require('es6-promise!./about/about')('About'), name: 'About'},
-    {path: '/**', redirectTo: ['Index']}
+    {path: '/**', redirectTo: ['Home']}
 ])
 export class App {
     constructor() {

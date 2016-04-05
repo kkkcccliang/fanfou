@@ -26,14 +26,14 @@ import {Instruction, RouterLink} from 'angular2/router';
     inputs: ['routerActive']
 })
 export class RouterActive {
-    routerActive:string = null;
-    routerActiveAttr:string = 'active';
+    routerActive: string = null;
+    routerActiveAttr: string = 'active';
 
-    constructor(public router:Router,
-                public element:ElementRef,
-                public renderer:Renderer,
-                @Query(RouterLink) public routerLink:QueryList<RouterLink>,
-                @Optional() @Attribute('router-active') routerActiveAttr?:string) {
+    constructor(public router: Router,
+                public element: ElementRef,
+                public renderer: Renderer,
+                @Query(RouterLink) public routerLink: QueryList<RouterLink>,
+                @Optional() @Attribute('router-active') routerActiveAttr?: string) {
 
         this.routerActiveAttr = this._defaultAttrValue(routerActiveAttr);
     }
@@ -48,7 +48,7 @@ export class RouterActive {
 
     }
 
-    private _defaultAttrValue(attr?:string) {
+    private _defaultAttrValue(attr?: string) {
         return this.routerActiveAttr = attr || this.routerActiveAttr;
     }
 
