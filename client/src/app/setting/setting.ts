@@ -36,16 +36,28 @@ export class Setting {
     ];
 
     constructor(
-        public router: Router
+        private _router: Router
     ) {
+    }
+
+    // TODO RouterActive is not working in child component, use this
+    isRouteActive(route) {
+        return this._router.isRouteActive(this._router.generate(route));
+    }
+
+    getPageHeader() {
+        let pageHeader = '';
+        this.menus.forEach((menu) => {
+            if (this.isRouteActive(menu.route)) {
+                pageHeader = menu.name;
+                return;
+            }
+        });
+        return pageHeader;
     }
 
     ngOnInit() {
         console.log('Setting ngOnInit', arguments);
-        // not work in child component?
-        this.router.subscribe((...args) => {
-            console.log(args);
-        });
     }
 
     // ngOnChanges(changes) {

@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="list-group nav-sidebar">
-                <li class="list-group-item" router-active *ngFor="#menu of menus">
+                <li class="list-group-item" *ngFor="#menu of menus" [class.active]="isRouteActive(menu.route)">
                     <a [routerLink]="menu.route">{{menu.name}}</a>
                 </li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Menu</h1>
+            <h1 class="page-header">{{getPageHeader()}}</h1>
             <router-outlet></router-outlet>
         </div>
     </div>
