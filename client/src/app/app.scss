@@ -1,6 +1,10 @@
 .navbar {
     background-color: #CECECE;
     border-width: 0;
+
+    .active {
+        background-color: #E2E2E2;
+    }
 }
 
 main {

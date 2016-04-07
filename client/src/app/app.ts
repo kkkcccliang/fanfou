@@ -2,7 +2,7 @@
  * Angular 2 decorators and services
  */
 import {Component} from 'angular2/core';
-import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
 import {RouterActive} from './components/directives/router-active';
@@ -22,8 +22,8 @@ import {Setting} from './setting/setting';
     template: require('./app.html')
 })
 @RouteConfig([
-    {path: '/home', component: Home, name: 'Home'},
-    {path: '/setting', component: Setting, name: 'Setting'},
+    {path: '/home', component: Home, name: 'Home', useAsDefault: true},
+    {path: '/setting/...', component: Setting, name: 'Setting'},
     // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
     {path: '/about', loader: () => require('es6-promise!./about/about')('About'), name: 'About'},
     {path: '/**', redirectTo: ['Home']}
