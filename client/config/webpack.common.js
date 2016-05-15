@@ -107,7 +107,7 @@ module.exports = {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
+      // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
 
       /*
        * Source map loader support for *.js files
@@ -169,6 +169,8 @@ module.exports = {
         test: /\.css$/,
         loader: 'raw-loader'
       },
+
+      {test: /\.scss$/, loader: 'raw-loader!sass-loader', exclude: /node_modules/},
 
       /* Raw loader support for *.html
        * Returns file content as string
