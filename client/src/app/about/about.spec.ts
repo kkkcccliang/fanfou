@@ -1,16 +1,15 @@
+import { TestComponentBuilder } from '@angular/compiler/testing';
+import { Component, provide } from '@angular/core';
 import {
-  it,
+  beforeEachProviders,
+  describe,
   inject,
   injectAsync,
-  describe,
-  beforeEachProviders,
-  TestComponentBuilder
-} from 'angular2/testing';
-
-import {Component, provide} from 'angular2/core';
+  it
+} from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import {About} from './about';
+import { About } from './about.component';
 
 describe('About', () => {
   // provide our implementations or mocks to the dependency injector

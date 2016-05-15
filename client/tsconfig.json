@@ -4,7 +4,8 @@
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "noEmitHelpers": true
   },
   "exclude": [
     "node_modules",
@@ -15,9 +16,13 @@
     "./src/**/*.ts",
     "./test/**/*.ts",
     "!./node_modules/**/*.ts",
-    "src/custom_typings.d.ts",
+    "src/custom-typings.d.ts",
     "typings/browser.d.ts"
   ],
+  "awesomeTypescriptLoaderOptions": {
+    "resolveGlobs": true,
+    "forkChecker": true
+  },
   "compileOnSave": false,
   "buildOnSave": false,
   "atom": { "rewriteTsconfig": false }
