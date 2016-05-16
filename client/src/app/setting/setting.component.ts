@@ -2,9 +2,9 @@
  * Created by liangjz on 4/5/16.
  */
 
-import {Component} from 'angular2/core';
-import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
-import {RouterActive} from '../components/directives/router-active';
+import {Component} from '@angular/core';
+import {RouteConfig, Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {RouterActive} from '../router-active';
 import {Personal} from './personal';
 import {FoodMenus} from './food-menus';
 import {Orders} from './orders';

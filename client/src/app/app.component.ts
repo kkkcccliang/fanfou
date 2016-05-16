@@ -1,12 +1,13 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
-import { RouteConfig, Router } from '@angular/router-deprecated';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {RouteConfig, Router} from '@angular/router-deprecated';
 
-import { AppState } from './app.service';
-import { Home } from './home';
-import { RouterActive } from './router-active';
+import {AppState} from './app.service';
+import {Home} from './home';
+import {RouterActive} from './router-active';
+import {Setting} from './setting';
 
 /*
  * App Component
@@ -14,9 +15,9 @@ import { RouterActive } from './router-active';
  */
 @Component({
   selector: 'app',
-  pipes: [ ],
-  providers: [ ],
-  directives: [ RouterActive ],
+  pipes: [],
+  providers: [],
+  directives: [RouterActive],
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('normalize.css'),
@@ -25,10 +26,11 @@ import { RouterActive } from './router-active';
   template: require('./app.html')
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
+  {path: '/home', name: 'Home', component: Home, useAsDefault: true},
+  {path: '/setting/...', name: 'Setting', component: Setting},
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
+  {path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About')},
+  {path: '/**', redirectTo: ['Home']}
 ])
 export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
