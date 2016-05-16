@@ -5,10 +5,10 @@
 import {Component} from '@angular/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {RouterActive} from '../router-active';
-import {Personal} from './personal';
-import {FoodMenus} from './food-menus';
-import {Orders} from './orders';
-import {Users} from './users';
+import {Personal} from './personal.component';
+import {FoodMenus} from './food-menus.component';
+import {Orders} from './orders.component';
+import {Users} from './users.component';
 
 interface MenuObject {
     name: string,
