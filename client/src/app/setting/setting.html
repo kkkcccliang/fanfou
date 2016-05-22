@@ -1,15 +1,15 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="list-group nav-sidebar">
-                <li class="list-group-item" *ngFor="#menu of menus" [class.active]="isRouteActive(menu.route)">
-                    <a [routerLink]="menu.route">{{menu.name}}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">{{getPageHeader()}}</h1>
-            <router-outlet></router-outlet>
-        </div>
+<div>
+  <div class="">
+    <div class="sidebar">
+      <md-nav-list>
+        <a md-list-item *ngFor="let menu of menus" [routerLink]="menu.route" [class.active]="isRouteActive(menu.route)">
+          {{ menu.name }}
+        </a>
+      </md-nav-list>
     </div>
+    <div class="main">
+      <h1 class="page-header">{{getPageHeader()}}</h1>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
