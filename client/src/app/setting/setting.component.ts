@@ -30,10 +30,10 @@ interface MenuObject {
 ])
 export class Setting {
   menus: Array<MenuObject> = [
-    {name: '我的', route: ['./Personal']},
-    {name: '好吃的', route: ['./FoodMenus']},
-    {name: '吃过的', route: ['./Orders']},
-    {name: '谁来订餐', route: ['./Users']}
+    {name: '餐馆菜单', route: ['./FoodMenus']},
+    {name: '历史订单', route: ['./Orders']},
+    {name: '谁订餐', route: ['./Users']},
+    {name: '我', route: ['./Personal']}
   ];
 
   constructor(private _router: Router) {
